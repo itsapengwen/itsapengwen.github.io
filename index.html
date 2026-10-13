@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>itsapengwen | Software Developer</title>
-  <meta name="description" content="Personal developer portfolio and open-source projects by itsapengwen.">
+  <meta name="description" content="Personal developer portfolio, Garmin watch apps, web games, language learning, and open-source projects by itsapengwen.">
   <style>
     :root {
       --bg: #0d1117;
@@ -16,6 +16,10 @@
       --accent-hover: #79b8ff;
       --tag-bg: #1f2937;
       --tag-text: #58a6ff;
+      --badge-garmin: #ff7043;
+      --badge-web: #26a69a;
+      --badge-game: #ab47bc;
+      --badge-content: #ffa726;
     }
 
     * {
@@ -33,7 +37,7 @@
     }
 
     header {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 2.5rem 0 1.5rem;
       display: flex;
@@ -66,13 +70,13 @@
     }
 
     main {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 3rem 0;
     }
 
     .hero {
-      padding: 2rem 0 3.5rem;
+      padding: 2rem 0 3rem;
     }
 
     .hero h1 {
@@ -86,7 +90,7 @@
     .hero p {
       font-size: 1.2rem;
       color: #8b949e;
-      max-width: 650px;
+      max-width: 700px;
       margin-bottom: 1.5rem;
     }
 
@@ -99,6 +103,7 @@
     .btn {
       display: inline-flex;
       align-items: center;
+      gap: 0.5rem;
       padding: 0.65rem 1.25rem;
       border-radius: 6px;
       text-decoration: none;
@@ -168,7 +173,7 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 1.5rem;
       margin-top: 1rem;
     }
@@ -181,16 +186,59 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s, border-color 0.2s;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
     }
 
     .project-card:hover {
       transform: translateY(-3px);
       border-color: #58a6ff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .category-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      margin-bottom: 0.75rem;
+      width: fit-content;
+    }
+
+    .badge-garmin {
+      background: rgba(255, 112, 67, 0.15);
+      color: #ff8a65;
+      border: 1px solid rgba(255, 112, 67, 0.3);
+    }
+
+    .badge-game {
+      background: rgba(171, 71, 188, 0.15);
+      color: #ba68c8;
+      border: 1px solid rgba(171, 71, 188, 0.3);
+    }
+
+    .badge-language {
+      background: rgba(38, 166, 154, 0.15);
+      color: #4db6ac;
+      border: 1px solid rgba(38, 166, 154, 0.3);
+    }
+
+    .badge-blog {
+      background: rgba(255, 167, 38, 0.15);
+      color: #ffb74d;
+      border: 1px solid rgba(255, 167, 38, 0.3);
+    }
+
+    .badge-opensource {
+      background: rgba(88, 166, 255, 0.15);
+      color: #79b8ff;
+      border: 1px solid rgba(88, 166, 255, 0.3);
     }
 
     .project-title {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       font-weight: 700;
       color: var(--heading);
       margin-bottom: 0.5rem;
@@ -207,18 +255,21 @@
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
 
     .project-tag {
       font-size: 0.75rem;
       color: var(--tag-text);
       background: var(--tag-bg);
-      padding: 0.2rem 0.5rem;
+      padding: 0.2rem 0.55rem;
       border-radius: 4px;
     }
 
     .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
       color: var(--accent);
       text-decoration: none;
       font-size: 0.9rem;
@@ -233,13 +284,13 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 8px;
-      padding: 2rem;
+      padding: 2.5rem 1.5rem;
       text-align: center;
       margin-top: 1rem;
     }
 
     footer {
-      max-width: 900px;
+      max-width: 960px;
       margin: 4rem auto 2rem;
       padding-top: 1.5rem;
       border-top: 1px solid var(--card-border);
@@ -264,8 +315,8 @@
     <a href="#" class="logo">itsapengwen<span>.dev</span></a>
     <nav>
       <a href="#about">About</a>
-      <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -273,69 +324,135 @@
   <main>
     <section class="hero">
       <h1>Hi, I'm itsapengwen 👋</h1>
-      <p>Software developer focused on building clean, useful web applications, developer tooling, and contributing to open-source software.</p>
+      <p>Software developer creating Garmin watch apps, web games, language learning platforms, and open-source tooling.</p>
       <div class="btn-group">
-        <a href="https://github.com/itsapengwen" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub Profile</a>
-        <a href="#projects" class="btn btn-secondary">Explore Projects</a>
+        <a href="#projects" class="btn btn-primary">Explore Projects</a>
+        <a href="https://github.com/itsapengwen" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub Profile</a>
       </div>
     </section>
 
     <section id="about">
       <h2>About Me</h2>
       <p style="margin-top: 1rem;">
-        I enjoy building modern web tools, exploring developer ecosystems, and creating open-source utilities. I value clean code, accessible design, and performance-first web architecture.
+        I build software across different platforms — from wearable Garmin Connect IQ apps and web-based games to language education platforms and culinary blogs. I enjoy experimenting with edge computing (Cloudflare Workers), IoT, and full-stack web development.
       </p>
+    </section>
+
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+
+        <!-- SolarWatch Garmin App -->
+        <div class="project-card">
+          <div>
+            <span class="category-badge badge-garmin">Garmin App</span>
+            <div class="project-title">SolarWatch</div>
+            <p class="project-desc">Real-time home solar generation and battery storage monitor for Garmin smartwatches, bringing live green-energy metrics to your wrist.</p>
+            <div class="project-tags">
+              <span class="project-tag">Monkey C</span>
+              <span class="project-tag">Garmin Connect IQ</span>
+              <span class="project-tag">Solar IoT</span>
+            </div>
+          </div>
+          <a href="https://apps.garmin.com/apps/797e9324-5507-4ffd-96c0-91544f2c5b27" target="_blank" rel="noopener noreferrer" class="project-link">Garmin Store →</a>
+        </div>
+
+        <!-- Hail Yeah Garmin App -->
+        <div class="project-card">
+          <div>
+            <span class="category-badge badge-garmin">Garmin App</span>
+            <div class="project-title">Hail Yeah</div>
+            <p class="project-desc">A flexible weather forecasting app for Garmin watches that lets users pick and tailor their preferred weather forecasts and weather data sources.</p>
+            <div class="project-tags">
+              <span class="project-tag">Monkey C</span>
+              <span class="project-tag">Garmin Connect IQ</span>
+              <span class="project-tag">Weather APIs</span>
+            </div>
+          </div>
+          <a href="https://apps.garmin.com/apps/f8dbdf43-1c7f-4fa6-9754-2aa578dedb23" target="_blank" rel="noopener noreferrer" class="project-link">Garmin Store →</a>
+        </div>
+
+        <!-- Gridlock Express Game -->
+        <div class="project-card">
+          <div>
+            <span class="category-badge badge-game">Web Game</span>
+            <div class="project-title">Gridlock Express</div>
+            <p class="project-desc">An interactive puzzle and strategy transit game deployed globally at the edge on Cloudflare Workers for lightning-fast performance.</p>
+            <div class="project-tags">
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">Cloudflare Workers</span>
+              <span class="project-tag">Web Game</span>
+            </div>
+          </div>
+          <a href="https://gridlock-express.itsapengwen.workers.dev/" target="_blank" rel="noopener noreferrer" class="project-link">Play Game →</a>
+        </div>
+
+        <!-- LinguaNewsCast -->
+        <div class="project-card">
+          <div>
+            <span class="category-badge badge-language">Language Learning</span>
+            <div class="project-title">LinguaNewsCast</div>
+            <p class="project-desc">Multilingual news podcasts helping language learners master new tongues through real-world, up-to-date global news and audio broadcasts.</p>
+            <div class="project-tags">
+              <span class="project-tag">Podcasts</span>
+              <span class="project-tag">Audio / TTS</span>
+              <span class="project-tag">Education</span>
+            </div>
+          </div>
+          <a href="https://www.linguanewscast.com/" target="_blank" rel="noopener noreferrer" class="project-link">Visit Website →</a>
+        </div>
+
+        <!-- The Penguin Eats -->
+        <div class="project-card">
+          <div>
+            <span class="category-badge badge-blog">Food Blogging</span>
+            <div class="project-title">The Penguin Eats</div>
+            <p class="project-desc">Unbiased, comprehensive restaurant reviews, food guides, and culinary discoveries across Melbourne's vibrant dining scene.</p>
+            <div class="project-tags">
+              <span class="project-tag">Web Publishing</span>
+              <span class="project-tag">Reviews</span>
+              <span class="project-tag">Melbourne</span>
+            </div>
+          </div>
+          <a href="https://penguineats.com" target="_blank" rel="noopener noreferrer" class="project-link">Read Reviews →</a>
+        </div>
+
+        <!-- Sveltia CMS Auth -->
+        <div class="project-card">
+          <div>
+            <span class="category-badge badge-opensource">Open Source</span>
+            <div class="project-title">Sveltia CMS Auth</div>
+            <p class="project-desc">Authentication helper and backend bridge enabling seamless Git-based content management workflows for static and Jamstack sites.</p>
+            <div class="project-tags">
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">OAuth</span>
+              <span class="project-tag">Jamstack</span>
+            </div>
+          </div>
+          <a href="https://github.com/itsapengwen/sveltia-cms-auth" target="_blank" rel="noopener noreferrer" class="project-link">GitHub Repo →</a>
+        </div>
+
+      </div>
     </section>
 
     <section id="skills">
       <h2>Technical Stack</h2>
       <div class="skills-grid">
         <span class="skill-tag">JavaScript (ES6+)</span>
-        <span class="skill-tag">TypeScript</span>
-        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Monkey C (Garmin)</span>
+        <span class="skill-tag">Cloudflare Workers</span>
         <span class="skill-tag">HTML5 & CSS3</span>
-        <span class="skill-tag">Git & GitHub</span>
-        <span class="skill-tag">GitHub Actions</span>
-        <span class="skill-tag">REST APIs</span>
-        <span class="skill-tag">DNS & Web Infrastructure</span>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>Featured Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div>
-            <div class="project-title">Sveltia CMS Auth</div>
-            <p class="project-desc">Authentication and backend bridge integration for Sveltia CMS, facilitating seamless git-based content management workflows.</p>
-            <div class="project-tags">
-              <span class="project-tag">JavaScript</span>
-              <span class="project-tag">OAuth</span>
-              <span class="project-tag">CMS</span>
-            </div>
-          </div>
-          <a href="https://github.com/itsapengwen/sveltia-cms-auth" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
-        </div>
-
-        <div class="project-card">
-          <div>
-            <div class="project-title">Developer Portfolio & Lab</div>
-            <p class="project-desc">Personal developer space hosted via GitHub Pages, showcasing open-source experiments, development guides, and software projects.</p>
-            <div class="project-tags">
-              <span class="project-tag">HTML5</span>
-              <span class="project-tag">CSS3</span>
-              <span class="project-tag">GitHub Pages</span>
-            </div>
-          </div>
-          <a href="https://github.com/itsapengwen" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
-        </div>
+        <span class="skill-tag">Git & GitHub Actions</span>
+        <span class="skill-tag">REST APIs & Edge Functions</span>
+        <span class="skill-tag">Static Site Generators</span>
+        <span class="skill-tag">DNS & Cloudflare</span>
       </div>
     </section>
 
     <section id="contact">
       <h2>Get in Touch</h2>
       <div class="contact-card">
-        <p style="margin-bottom: 1.5rem; color: #8b949e;">Feel free to reach out for collaboration, questions, or project inquiries.</p>
+        <p style="margin-bottom: 1.5rem; color: #8b949e;">Feel free to reach out for collaboration, software projects, or questions.</p>
         <div class="btn-group" style="justify-content: center;">
           <a href="https://github.com/itsapengwen" target="_blank" rel="noopener noreferrer" class="btn btn-primary">github.com/itsapengwen</a>
           <a href="mailto:itsapengwen@proton.me" class="btn btn-secondary">itsapengwen@proton.me</a>
